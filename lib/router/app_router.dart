@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:architecture_portfolio_web/features/contact/presentation/contact_page.dart';
 import 'package:architecture_portfolio_web/features/home/presentation/pages/home_page.dart';
-import 'package:architecture_portfolio_web/features/projects/presentation/project_detail_page.dart';
+import 'package:architecture_portfolio_web/features/projects/presentation/pages/project_detail_page.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 
 class AppRouter {

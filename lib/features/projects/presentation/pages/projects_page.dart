@@ -5,8 +5,10 @@ import 'package:architecture_portfolio_web/features/home/presentation/widgets/ap
 import 'package:architecture_portfolio_web/features/home/presentation/widgets/project_card.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_filter.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_header.dart';
+import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:architecture_portfolio_web/shared/widgets/app_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProjectsPage extends StatefulWidget {
   const ProjectsPage({
@@ -25,21 +27,25 @@ class _ProjectsPageState extends State<ProjectsPage> {
       'title': 'TROPICAL COURTYARD HOUSE',
       'category': 'RESIDENTIAL',
       'year': '2025',
+      'slug': 'tropical-courtyard-house',
     },
     {
       'title': 'URBAN CULTURAL CENTER',
       'category': 'PUBLIC',
       'year': '2024',
+      'slug': 'urban-cultural-center',
     },
     {
       'title': 'COMMUNITY PAVILION',
       'category': 'COMMUNITY',
       'year': '2024',
+      'slug': 'community-pavilion',
     },
     {
       'title': 'COASTAL RETREAT',
       'category': 'HOSPITALITY',
       'year': '2023',
+      'slug': 'coastal-retreat',
     },
   ];
 
@@ -144,7 +150,11 @@ class _ProjectsPageState extends State<ProjectsPage> {
               category: project['category']!,
               year: project['year']!,
               onTap: () {
-                // Project detail navigation later.
+                context.go(
+                  AppRoutes.projectDetailPath(
+                    project['slug']!,
+                  ),
+                );
               },
             );
           },

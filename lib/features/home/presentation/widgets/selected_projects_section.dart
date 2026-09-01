@@ -16,23 +16,27 @@ class SelectedProjectsSection extends StatelessWidget {
   static const List<Map<String, String>> _projects = [
     {
       'title': 'TROPICAL COURTYARD HOUSE',
-      'category': 'Residential',
+      'category': 'RESIDENTIAL',
       'year': '2025',
+      'slug': 'tropical-courtyard-house',
     },
     {
       'title': 'URBAN CULTURAL CENTER',
-      'category': 'Public Architecture',
+      'category': 'PUBLIC',
       'year': '2024',
+      'slug': 'urban-cultural-center',
     },
     {
       'title': 'COMMUNITY PAVILION',
-      'category': 'Community',
+      'category': 'COMMUNITY',
       'year': '2024',
+      'slug': 'community-pavilion',
     },
     {
       'title': 'COASTAL RETREAT',
-      'category': 'Hospitality',
+      'category': 'HOSPITALITY',
       'year': '2023',
+      'slug': 'coastal-retreat',
     },
   ];
 
@@ -90,7 +94,11 @@ class SelectedProjectsSection extends StatelessWidget {
                       category: project['category']!,
                       year: project['year']!,
                       onTap: () {
-                        // Project detail navigation later.
+                        context.go(
+                          AppRoutes.projectDetailPath(
+                            project['slug']!,
+                          ),
+                        );
                       },
                     );
                   },
