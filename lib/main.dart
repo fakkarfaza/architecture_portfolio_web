@@ -4,6 +4,8 @@ import 'package:architecture_portfolio_web/router/app_router.dart';
 import 'core/constants/app_colors.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(const PortfolioApp());
 }
 
