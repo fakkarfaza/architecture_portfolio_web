@@ -1,3 +1,4 @@
+import 'package:architecture_portfolio_web/features/about/presentation/pages/about_page.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/pages/projects_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -30,6 +31,12 @@ class AppRouter {
           final slug = state.pathParameters['slug']!;
 
           return ProjectDetailPage(slug: slug);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.about,
+        builder: (context, state) {
+          return const AboutPage();
         },
       ),
       GoRoute(

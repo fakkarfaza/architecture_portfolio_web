@@ -1,0 +1,22 @@
+{
+  "@@locale": "id",
+
+  "home": "BERANDA",
+  "projects": "PROYEK",
+  "about": "TENTANG",
+  "contact": "KONTAK",
+
+  "architecturePortfolio": "PORTOFOLIO ARSITEKTUR",
+  "heroTitle": "MERANCANG RUANG\nYANG MENGINSPIRASI.",
+  "heroDescription": "Arsitektur lebih dari sekadar menciptakan bangunan. Arsitektur adalah tentang merancang ruang yang menghubungkan manusia, alam, dan pengalaman.",
+  "scrollToExplore": "GULIR UNTUK MENJELAJAHI",
+  "featuredProjects": "PROYEK UNGGULAN",
+  "viewProject": "LIHAT PROYEK",
+  "designProcess": "PROSES DESAIN",
+  "siteAnalysis": "ANALISIS TAPAK",
+  "massingDevelopment": "PENGEMBANGAN MASSA",
+  "visualization": "VISUALISASI",
+
+  "aboutHeadline": "ARSITEKTUR BUKAN HANYA\nTENTANG BANGUNAN.\nARSITEKTUR ADALAH TENTANG MANUSIA.",
+  "aboutHeroDescription": "Saya percaya bahwa arsitektur memiliki kekuatan untuk membentuk cara manusia hidup, berinteraksi, dan mengalami dunia di sekitarnya."
+}

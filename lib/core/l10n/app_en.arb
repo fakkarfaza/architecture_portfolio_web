@@ -1,0 +1,22 @@
+{
+  "@@locale": "en",
+
+  "home": "HOME",
+  "projects": "PROJECTS",
+  "about": "ABOUT",
+  "contact": "CONTACT",
+
+  "architecturePortfolio": "ARCHITECTURE PORTFOLIO",
+  "heroTitle": "DESIGNING SPACES\nTHAT INSPIRE.",
+  "heroDescription": "Architecture is more than creating buildings. It is about designing spaces that connect people, nature, and experiences.",
+  "scrollToExplore": "SCROLL TO EXPLORE",
+  "featuredProjects": "FEATURED PROJECTS",
+  "viewProject": "VIEW PROJECT",
+  "designProcess": "DESIGN PROCESS",
+  "siteAnalysis": "SITE ANALYSIS",
+  "massingDevelopment": "MASSING DEVELOPMENT",
+  "visualization": "VISUALIZATION",
+
+  "aboutHeadline": "ARCHITECTURE IS NOT JUST\nABOUT BUILDINGS.\nIT IS ABOUT PEOPLE.",
+  "aboutHeroDescription": "I believe architecture has the power to shape how people live, interact, and experience the world around them."
+}

@@ -1,3 +1,5 @@
+import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
+import 'package:architecture_portfolio_web/shared/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
@@ -20,6 +22,7 @@ class AppNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentRoute = GoRouterState.of(context).uri.path;
+    final l10n = AppLocalizations.of(context)!;
 
     return Container(
       height: context.isMobile
@@ -49,45 +52,49 @@ class AppNavbar extends StatelessWidget {
                   Row(
                     children: [
                       _NavItem(
-                        title: 'HOME',
+                        title: l10n.home,
                         route: '/',
                         isActive: currentRoute == AppRoutes.home,
                       ),
                       SizedBox(width: AppSpacing.lg),
                       _NavItem(
-                        title: 'PROJECTS',
+                        title: l10n.projects,
                         route: '/projects',
                         isActive: currentRoute.startsWith(AppRoutes.projects),
                       ),
                       SizedBox(width: AppSpacing.lg),
                       _NavItem(
-                        title: 'ABOUT',
+                        title: l10n.about,
                         route: '/about',
                         isActive: currentRoute == AppRoutes.about,
                       ),
                       SizedBox(width: AppSpacing.lg),
                       _NavItem(
-                        title: 'CONTACT',
+                        title: l10n.contact,
                         route: '/contact',
                         isActive: currentRoute == AppRoutes.contact,
                       ),
+                      const SizedBox(width: AppSpacing.xl),
+                      const LanguageSwitcher(),
                     ],
                   ),
 
                 if (context.isMobile)
-                  IconButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        barrierColor: Colors.transparent,
-                        builder: (_) => const MobileMenu(),
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.menu,
-                      color: AppColors.primaryText,
-                    ),
+                const LanguageSwitcher(),
+                const SizedBox(width: AppSpacing.sm),
+                IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      barrierColor: Colors.transparent,
+                      builder: (_) => const MobileMenu(),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.menu,
+                    color: AppColors.primaryText,
                   ),
+                ),
               ],
             ),
           ),
@@ -151,7 +158,7 @@ class _NavItemState extends State<_NavItem> {
           context.go(widget.route);
         },
         child: AnimatedOpacity(
-          duration: const Duration(microseconds: 200),
+          duration: const Duration(milliseconds: 200),
           opacity: widget.isActive
               ? 1
               : _isHovered
