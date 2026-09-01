@@ -18,5 +18,49 @@
   "visualization": "VISUALIZATION",
 
   "aboutHeadline": "ARCHITECTURE IS NOT JUST\nABOUT BUILDINGS.\nIT IS ABOUT PEOPLE.",
-  "aboutHeroDescription": "I believe architecture has the power to shape how people live, interact, and experience the world around them."
+  "aboutHeroDescription": "I believe architecture has the power to shape how people live, interact, and experience the world around them.",
+
+  "education": "EDUCATION",
+  "educationPeriod": "2021 - 2025",
+  "educationDegree": "Bachelor of Architecture",
+  "educationUniversity": "Universitas Indonesia",
+
+  "experience": "EXPERIENCE",
+  "experiencePeriodOne": "2024",
+  "experienceTitleOne": "Architecture Intern",
+  "experienceCompanyOne": "ABC Architecture Studio",
+  "experienceDescriptionOne": "Assisted concept development",
+  "experienceDescriptionTwo": "Created 3D models and renderings",
+
+  "experiencePeriodTwo": "2023",
+  "experienceTitleTwo": "Student Committee",
+  "experienceCompanyTwo": "Architecture Exhibition",
+  "experienceDescriptionThree": "Event planning and coordination",
+  "experienceDescriptionFour": "Exhibition design and layout",
+
+  "skills": "SKILLS",
+
+  "designSkills": "DESIGN SKILLS",
+  "interiorDesign": "Interior Design",
+  "urbanDesign": "Urban Design",
+  "landscapeDesign": "Landscape Design",
+  "sustainableDesign": "Sustainable Design",
+
+  "softwareSkills": "SOFTWARE SKILLS",
+  "autoCad": "AutoCAD",
+  "revit": "Revit",
+  "sketchup": "SketchUp",
+  "lumion": "Lumion",
+  "enscape": "Enscape",
+  "photoshop": "Photoshop",
+  "rhino": "Rhino",
+
+  "aboutMe": "ABOUT ME",
+  "helloIm": "Hello, I'm",
+  "architectName": "YOUR NAME",
+  "architectRole": "Architecture Graduate",
+  "aboutBiography": "I am a fresh architecture graduate passionate about designing functional, meaningful, and sustainable spaces. I enjoy exploring ideas through design, visualization, and creative solutions that improve people's lives.",
+  "profileLocation": "Bandung, Indonesia",
+  "profileEmail": "your.email@gmail.com",
+  "profilePhone": "+62 812 3456 7890"
 }

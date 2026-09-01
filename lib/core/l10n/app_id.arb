@@ -18,5 +18,49 @@
   "visualization": "VISUALISASI",
 
   "aboutHeadline": "ARSITEKTUR BUKAN HANYA\nTENTANG BANGUNAN.\nARSITEKTUR ADALAH TENTANG MANUSIA.",
-  "aboutHeroDescription": "Saya percaya bahwa arsitektur memiliki kekuatan untuk membentuk cara manusia hidup, berinteraksi, dan mengalami dunia di sekitarnya."
+  "aboutHeroDescription": "Saya percaya bahwa arsitektur memiliki kekuatan untuk membentuk cara manusia hidup, berinteraksi, dan mengalami dunia di sekitarnya.",
+
+  "education": "PENDIDIKAN",
+  "educationPeriod": "2021 - 2025",
+  "educationDegree": "Sarjana Arsitektur",
+  "educationUniversity": "Universitas Indonesia",
+
+  "experience": "PENGALAMAN",
+  "experiencePeriodOne": "2024",
+  "experienceTitleOne": "Magang Arsitektur",
+  "experienceCompanyOne": "ABC Architecture Studio",
+  "experienceDescriptionOne": "Membantu pengembangan konsep",
+  "experienceDescriptionTwo": "Membuat model 3D dan rendering",
+
+  "experiencePeriodTwo": "2023",
+  "experienceTitleTwo": "Panitia Mahasiswa",
+  "experienceCompanyTwo": "Pameran Arsitektur",
+  "experienceDescriptionThree": "Perencanaan dan koordinasi acara",
+  "experienceDescriptionFour": "Desain dan tata letak pameran",
+
+  "skills": "KEAHLIAN",
+
+  "designSkills": "KEAHLIAN DESAIN",
+  "interiorDesign": "Desain Interior",
+  "urbanDesign": "Desain Perkotaan",
+  "landscapeDesign": "Desain Lanskap",
+  "sustainableDesign": "Desain Berkelanjutan",
+
+  "softwareSkills": "KEAHLIAN PERANGKAT LUNAK",
+  "autoCad": "AutoCAD",
+  "revit": "Revit",
+  "sketchup": "SketchUp",
+  "lumion": "Lumion",
+  "enscape": "Enscape",
+  "photoshop": "Photoshop",
+  "rhino": "Rhino",
+
+  "aboutMe": "TENTANG SAYA",
+  "helloIm": "Halo, saya",
+  "architectName": "NAMA ANDA",
+  "architectRole": "Lulusan Arsitektur",
+  "aboutBiography": "Saya adalah lulusan baru arsitektur yang memiliki ketertarikan dalam merancang ruang yang fungsional, bermakna, dan berkelanjutan. Saya senang mengeksplorasi ide melalui desain, visualisasi, dan solusi kreatif yang dapat meningkatkan kehidupan manusia.",
+  "profileLocation": "Bandung, Indonesia",
+  "profileEmail": "your.email@gmail.com",
+  "profilePhone": "+62 812 3456 7890"
 }
