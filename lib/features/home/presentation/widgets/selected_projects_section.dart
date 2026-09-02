@@ -77,14 +77,13 @@ class SelectedProjectsSection extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: _projects.length,
-                  gridDelegate:
-                      SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: context.isMobile ? 1 : 2,
                     crossAxisSpacing: AppSpacing.lg,
                     mainAxisSpacing: AppSpacing.xxl,
                     childAspectRatio: context.isMobile
-                        ? 1.15
-                        : 1.05,
+                        ? 0.82
+                        : 0.90,
                   ),
                   itemBuilder: (context, index) {
                     final project = _projects[index];

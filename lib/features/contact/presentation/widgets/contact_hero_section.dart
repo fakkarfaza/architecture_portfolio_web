@@ -6,8 +6,8 @@ import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class ContactMainSection extends StatelessWidget {
-  const ContactMainSection({
+class ContactHeroSection extends StatelessWidget {
+  const ContactHeroSection({
     super.key,
   });
 
@@ -34,10 +34,10 @@ class ContactMainSection extends StatelessWidget {
                   : AppSpacing.xl,
             ),
             child: context.isMobile
-                ? _MobileContactLayout(
+                ? _MobileContactHero(
                     l10n: l10n,
                   )
-                : _DesktopContactLayout(
+                : _DesktopContactHero(
                     l10n: l10n,
                   ),
           ),
@@ -47,8 +47,8 @@ class ContactMainSection extends StatelessWidget {
   }
 }
 
-class _DesktopContactLayout extends StatelessWidget {
-  const _DesktopContactLayout({
+class _DesktopContactHero extends StatelessWidget {
+  const _DesktopContactHero({
     required this.l10n,
   });
 
@@ -60,8 +60,8 @@ class _DesktopContactLayout extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          flex: 5,
-          child: _ContactInformation(
+          flex: 4,
+          child: _ContactHeroContent(
             l10n: l10n,
           ),
         ),
@@ -71,7 +71,7 @@ class _DesktopContactLayout extends StatelessWidget {
         ),
 
         Expanded(
-          flex: 5,
+          flex: 6,
           child: _ContactForm(
             l10n: l10n,
           ),
@@ -81,8 +81,8 @@ class _DesktopContactLayout extends StatelessWidget {
   }
 }
 
-class _MobileContactLayout extends StatelessWidget {
-  const _MobileContactLayout({
+class _MobileContactHero extends StatelessWidget {
+  const _MobileContactHero({
     required this.l10n,
   });
 
@@ -93,12 +93,12 @@ class _MobileContactLayout extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _ContactInformation(
+        _ContactHeroContent(
           l10n: l10n,
         ),
 
         const SizedBox(
-          height: AppSpacing.xxl,
+          height: AppSpacing.xxxl,
         ),
 
         _ContactForm(
@@ -109,8 +109,8 @@ class _MobileContactLayout extends StatelessWidget {
   }
 }
 
-class _ContactInformation extends StatelessWidget {
-  const _ContactInformation({
+class _ContactHeroContent extends StatelessWidget {
+  const _ContactHeroContent({
     required this.l10n,
   });
 
@@ -130,9 +130,14 @@ class _ContactInformation extends StatelessWidget {
           height: AppSpacing.lg,
         ),
 
-        Text(
-          l10n.contactHeadline,
-          style: AppTextStyles.h1(context),
+        ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 460,
+          ),
+          child: Text(
+            l10n.contactHeadline,
+            style: AppTextStyles.h1(context),
+          ),
         ),
 
         const SizedBox(
@@ -141,120 +146,14 @@ class _ContactInformation extends StatelessWidget {
 
         ConstrainedBox(
           constraints: const BoxConstraints(
-            maxWidth: 460,
+            maxWidth: 400,
           ),
           child: Text(
             l10n.contactDescription,
             style: AppTextStyles.bodyLarge(context),
           ),
         ),
-
-        const SizedBox(
-          height: AppSpacing.xxl,
-        ),
-
-        _ContactInfoGroup(
-          title: l10n.getInTouch,
-          children: [
-            _ContactInfoItem(
-              label: l10n.email,
-              value: l10n.contactEmail,
-            ),
-            _ContactInfoItem(
-              label: l10n.location,
-              value: l10n.contactLocation,
-            ),
-        ],
-        ),
-
-        const SizedBox(
-          height: AppSpacing.xl,
-        ),
-
-        _ContactInfoGroup(
-          title: l10n.followMe,
-          children: [
-            _ContactInfoItem(
-              label: 'INSTAGRAM',
-              value: l10n.instagram,
-            ),
-            _ContactInfoItem(
-              label: 'LINKEDIN',
-              value: l10n.linkedin,
-            ),
-            _ContactInfoItem(
-              label: 'BEHANCE',
-              value: l10n.behance,
-            ),
-          ],
-        ),
       ],
-    );
-  }
-}
-
-class _ContactInfoGroup extends StatelessWidget {
-  const _ContactInfoGroup({
-    required this.title,
-    required this.children,
-  });
-
-  final String title;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: AppTextStyles.navigation(context),
-        ),
-
-        const SizedBox(
-          height: AppSpacing.md,
-        ),
-
-        ...children,
-      ],
-    );
-  }
-}
-
-class _ContactInfoItem extends StatelessWidget {
-  const _ContactInfoItem({
-    required this.label,
-    required this.value,
-  });
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        bottom: AppSpacing.sm,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: AppTextStyles.label(context),
-          ),
-
-          const SizedBox(
-            height: AppSpacing.xs,
-          ),
-
-          Text(
-            value,
-            style: AppTextStyles.body(context),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -289,6 +188,7 @@ class _ContactFormState extends State<_ContactForm> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _ContactTextField(
           controller: _nameController,
@@ -314,30 +214,22 @@ class _ContactFormState extends State<_ContactForm> {
         ),
 
         const SizedBox(
-          height: AppSpacing.lg,
+          height: AppSpacing.xl,
         ),
 
         _ContactTextField(
           controller: _messageController,
           label: widget.l10n.yourMessage,
-          maxLines: 6,
+          maxLines: 5,
         ),
 
         const SizedBox(
-          height: AppSpacing.xl,
+          height: AppSpacing.sm,
         ),
 
-        Align(
-          alignment: Alignment.centerLeft,
-          child: ElevatedButton(
-            onPressed: () {
-              // Contact form submission will be
-              // implemented when backend is available.
-            },
-            child: Text(
-              widget.l10n.sendMessage,
-            ),
-          ),
+        _ContactSubmitButton(
+          label: widget.l10n.sendMessage,
+          onPressed: () {},
         ),
       ],
     );
@@ -357,22 +249,73 @@ class _ContactTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: controller,
-      maxLines: maxLines,
-      style: AppTextStyles.body(context),
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: AppTextStyles.label(context),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColors.secondaryText,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label.toUpperCase(),
+          style: AppTextStyles.label(context),
+        ),
+
+        const SizedBox(
+          height: AppSpacing.sm,
+        ),
+
+        TextField(
+          controller: controller,
+          maxLines: maxLines,
+          cursorColor: AppColors.primaryText,
+          style: AppTextStyles.body(context),
+          decoration: const InputDecoration(
+            isDense: true,
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.secondaryText,
+              ),
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.secondaryText,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.primaryText,
+              ),
+            ),
           ),
         ),
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(
+      ],
+    );
+  }
+}
+
+class _ContactSubmitButton extends StatelessWidget {
+  const _ContactSubmitButton({
+    required this.label,
+    required this.onPressed,
+  });
+
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.xl,
+          vertical: AppSpacing.md,
+        ),
+        decoration: BoxDecoration(
+          border: Border.all(
             color: AppColors.primaryText,
           ),
+        ),
+        child: Text(
+          label.toUpperCase(),
+          style: AppTextStyles.label(context),
         ),
       ),
     );

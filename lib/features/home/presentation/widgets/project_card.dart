@@ -90,6 +90,7 @@ class _ProjectCardState extends State<ProjectCard> {
             Text(
               widget.title,
               style: AppTextStyles.h3(context),
+              softWrap: true,
             ),
             const SizedBox(
               height: AppSpacing.xs,

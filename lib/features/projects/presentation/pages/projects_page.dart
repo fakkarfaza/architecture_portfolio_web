@@ -138,9 +138,11 @@ class _ProjectsPageState extends State<ProjectsPage> {
           itemCount: _filteredProjects.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: crossAxisCount,
-            crossAxisSpacing: AppSpacing.lg,
+            crossAxisSpacing: AppSpacing.lg ,
             mainAxisSpacing: AppSpacing.xxl,
-            childAspectRatio: context.isMobile ? 1.1 : 1.05,
+            childAspectRatio: context.isMobile
+                ? 0.80
+                : 0.88,
           ),
           itemBuilder: (context, index) {
             final project = _filteredProjects[index];
