@@ -166,4 +166,52 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get profilePhone => '+62 812 3456 7890';
+
+  @override
+  String get contactHeadline => 'MARI CIPTAKAN SESUATU\nYANG BERMAKNA BERSAMA.';
+
+  @override
+  String get contactDescription => 'Memiliki proyek, ide, atau peluang kolaborasi? Saya akan senang mendengar dari Anda dan mengeksplorasi bagaimana kita dapat menciptakan sesuatu yang bermakna bersama.';
+
+  @override
+  String get getInTouch => 'HUBUNGI SAYA';
+
+  @override
+  String get email => 'EMAIL';
+
+  @override
+  String get location => 'LOKASI';
+
+  @override
+  String get contactEmail => 'your.email@gmail.com';
+
+  @override
+  String get contactLocation => 'Bandung, Indonesia';
+
+  @override
+  String get followMe => 'IKUTI SAYA';
+
+  @override
+  String get instagram => '@yourusername';
+
+  @override
+  String get linkedin => 'Nama Anda';
+
+  @override
+  String get behance => 'Nama Anda';
+
+  @override
+  String get yourName => 'NAMA ANDA';
+
+  @override
+  String get emailAddress => 'ALAMAT EMAIL';
+
+  @override
+  String get subject => 'SUBJEK';
+
+  @override
+  String get yourMessage => 'PESAN ANDA';
+
+  @override
+  String get sendMessage => 'KIRIM PESAN';
 }

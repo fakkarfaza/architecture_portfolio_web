@@ -62,5 +62,22 @@
   "aboutBiography": "Saya adalah lulusan baru arsitektur yang memiliki ketertarikan dalam merancang ruang yang fungsional, bermakna, dan berkelanjutan. Saya senang mengeksplorasi ide melalui desain, visualisasi, dan solusi kreatif yang dapat meningkatkan kehidupan manusia.",
   "profileLocation": "Bandung, Indonesia",
   "profileEmail": "your.email@gmail.com",
-  "profilePhone": "+62 812 3456 7890"
+  "profilePhone": "+62 812 3456 7890",
+
+  "contactHeadline": "MARI CIPTAKAN SESUATU\nYANG BERMAKNA BERSAMA.",
+  "contactDescription": "Memiliki proyek, ide, atau peluang kolaborasi? Saya akan senang mendengar dari Anda dan mengeksplorasi bagaimana kita dapat menciptakan sesuatu yang bermakna bersama.",
+  "getInTouch": "HUBUNGI SAYA",
+  "email": "EMAIL",
+  "location": "LOKASI",
+  "contactEmail": "your.email@gmail.com",
+  "contactLocation": "Bandung, Indonesia",
+  "followMe": "IKUTI SAYA",
+  "instagram": "@yourusername",
+  "linkedin": "Nama Anda",
+  "behance": "Nama Anda",
+  "yourName": "NAMA ANDA",
+  "emailAddress": "ALAMAT EMAIL",
+  "subject": "SUBJEK",
+  "yourMessage": "PESAN ANDA",
+  "sendMessage": "KIRIM PESAN"
 }

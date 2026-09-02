@@ -62,5 +62,22 @@
   "aboutBiography": "I am a fresh architecture graduate passionate about designing functional, meaningful, and sustainable spaces. I enjoy exploring ideas through design, visualization, and creative solutions that improve people's lives.",
   "profileLocation": "Bandung, Indonesia",
   "profileEmail": "your.email@gmail.com",
-  "profilePhone": "+62 812 3456 7890"
+  "profilePhone": "+62 812 3456 7890",
+
+  "contactHeadline": "LET'S CREATE SOMETHING\nMEANINGFUL TOGETHER.",
+  "contactDescription": "Have a project, collaboration, or idea in mind? I would love to hear from you and explore how we can create something meaningful together.",
+  "getInTouch": "GET IN TOUCH",
+  "email": "EMAIL",
+  "location": "LOCATION",
+  "contactEmail": "your.email@gmail.com",
+  "contactLocation": "Bandung, Indonesia",
+  "followMe": "FOLLOW ME",
+  "instagram": "@yourusername",
+  "linkedin": "Your Name",
+  "behance": "Your Name",
+  "yourName": "YOUR NAME",
+  "emailAddress": "EMAIL ADDRESS",
+  "subject": "SUBJECT",
+  "yourMessage": "YOUR MESSAGE",
+  "sendMessage": "SEND MESSAGE"
 }

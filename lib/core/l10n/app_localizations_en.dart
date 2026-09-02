@@ -166,4 +166,52 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profilePhone => '+62 812 3456 7890';
+
+  @override
+  String get contactHeadline => 'LET\'S CREATE SOMETHING\nMEANINGFUL TOGETHER.';
+
+  @override
+  String get contactDescription => 'Have a project, collaboration, or idea in mind? I would love to hear from you and explore how we can create something meaningful together.';
+
+  @override
+  String get getInTouch => 'GET IN TOUCH';
+
+  @override
+  String get email => 'EMAIL';
+
+  @override
+  String get location => 'LOCATION';
+
+  @override
+  String get contactEmail => 'your.email@gmail.com';
+
+  @override
+  String get contactLocation => 'Bandung, Indonesia';
+
+  @override
+  String get followMe => 'FOLLOW ME';
+
+  @override
+  String get instagram => '@yourusername';
+
+  @override
+  String get linkedin => 'Your Name';
+
+  @override
+  String get behance => 'Your Name';
+
+  @override
+  String get yourName => 'YOUR NAME';
+
+  @override
+  String get emailAddress => 'EMAIL ADDRESS';
+
+  @override
+  String get subject => 'SUBJECT';
+
+  @override
+  String get yourMessage => 'YOUR MESSAGE';
+
+  @override
+  String get sendMessage => 'SEND MESSAGE';
 }

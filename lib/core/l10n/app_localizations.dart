@@ -412,6 +412,102 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+62 812 3456 7890'**
   String get profilePhone;
+
+  /// No description provided for @contactHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'LET\'S CREATE SOMETHING\nMEANINGFUL TOGETHER.'**
+  String get contactHeadline;
+
+  /// No description provided for @contactDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Have a project, collaboration, or idea in mind? I would love to hear from you and explore how we can create something meaningful together.'**
+  String get contactDescription;
+
+  /// No description provided for @getInTouch.
+  ///
+  /// In en, this message translates to:
+  /// **'GET IN TOUCH'**
+  String get getInTouch;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'EMAIL'**
+  String get email;
+
+  /// No description provided for @location.
+  ///
+  /// In en, this message translates to:
+  /// **'LOCATION'**
+  String get location;
+
+  /// No description provided for @contactEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'your.email@gmail.com'**
+  String get contactEmail;
+
+  /// No description provided for @contactLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Bandung, Indonesia'**
+  String get contactLocation;
+
+  /// No description provided for @followMe.
+  ///
+  /// In en, this message translates to:
+  /// **'FOLLOW ME'**
+  String get followMe;
+
+  /// No description provided for @instagram.
+  ///
+  /// In en, this message translates to:
+  /// **'@yourusername'**
+  String get instagram;
+
+  /// No description provided for @linkedin.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Name'**
+  String get linkedin;
+
+  /// No description provided for @behance.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Name'**
+  String get behance;
+
+  /// No description provided for @yourName.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR NAME'**
+  String get yourName;
+
+  /// No description provided for @emailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'EMAIL ADDRESS'**
+  String get emailAddress;
+
+  /// No description provided for @subject.
+  ///
+  /// In en, this message translates to:
+  /// **'SUBJECT'**
+  String get subject;
+
+  /// No description provided for @yourMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR MESSAGE'**
+  String get yourMessage;
+
+  /// No description provided for @sendMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'SEND MESSAGE'**
+  String get sendMessage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
