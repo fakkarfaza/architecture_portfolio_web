@@ -371,6 +371,12 @@ abstract class AppLocalizations {
   /// **'ABOUT ME'**
   String get aboutMe;
 
+  /// No description provided for @moreAboutMe.
+  ///
+  /// In en, this message translates to:
+  /// **'MORE ABOUT ME'**
+  String get moreAboutMe;
+
   /// No description provided for @helloIm.
   ///
   /// In en, this message translates to:
@@ -413,11 +419,29 @@ abstract class AppLocalizations {
   /// **'+62 812 3456 7890'**
   String get profilePhone;
 
+  /// No description provided for @letsWorkTogether.
+  ///
+  /// In en, this message translates to:
+  /// **'LET\'S WORK TOGETHER'**
+  String get letsWorkTogether;
+
   /// No description provided for @contactHeadline.
   ///
   /// In en, this message translates to:
   /// **'LET\'S CREATE SOMETHING\nMEANINGFUL TOGETHER.'**
   String get contactHeadline;
+
+  /// No description provided for @contactCtaTitleDesktop.
+  ///
+  /// In en, this message translates to:
+  /// **'LET\'S CREATE SOMETHING\nMEANINGFUL.'**
+  String get contactCtaTitleDesktop;
+
+  /// No description provided for @contactCtaTitleMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'LET\'S CREATE\nSOMETHING\nMEANINGFUL.'**
+  String get contactCtaTitleMobile;
 
   /// No description provided for @contactDescription.
   ///
@@ -508,6 +532,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'SEND MESSAGE'**
   String get sendMessage;
+
+  /// No description provided for @footerCopyright.
+  ///
+  /// In en, this message translates to:
+  /// **'© 2026 ARCHI. ALL RIGHTS RESERVED.'**
+  String get footerCopyright;
+
+  /// No description provided for @footerDesignedBuilt.
+  ///
+  /// In en, this message translates to:
+  /// **'DESIGNED & BUILT WITH CARE.'**
+  String get footerDesignedBuilt;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

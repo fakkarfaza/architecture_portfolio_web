@@ -16,6 +16,7 @@
   "siteAnalysis": "SITE ANALYSIS",
   "massingDevelopment": "MASSING DEVELOPMENT",
   "visualization": "VISUALIZATION",
+  
 
   "aboutHeadline": "ARCHITECTURE IS NOT JUST\nABOUT BUILDINGS.\nIT IS ABOUT PEOPLE.",
   "aboutHeroDescription": "I believe architecture has the power to shape how people live, interact, and experience the world around them.",
@@ -56,6 +57,7 @@
   "rhino": "Rhino",
 
   "aboutMe": "ABOUT ME",
+  "moreAboutMe": "MORE ABOUT ME",
   "helloIm": "Hello, I'm",
   "architectName": "YOUR NAME",
   "architectRole": "Architecture Graduate",
@@ -64,7 +66,10 @@
   "profileEmail": "your.email@gmail.com",
   "profilePhone": "+62 812 3456 7890",
 
+  "letsWorkTogether": "LET'S WORK TOGETHER",
   "contactHeadline": "LET'S CREATE SOMETHING\nMEANINGFUL TOGETHER.",
+  "contactCtaTitleDesktop": "LET'S CREATE SOMETHING\nMEANINGFUL.",
+  "contactCtaTitleMobile": "LET'S CREATE\nSOMETHING\nMEANINGFUL.",
   "contactDescription": "Have a project, collaboration, or idea in mind? I would love to hear from you and explore how we can create something meaningful together.",
   "getInTouch": "GET IN TOUCH",
   "email": "EMAIL",
@@ -79,5 +84,8 @@
   "emailAddress": "EMAIL ADDRESS",
   "subject": "SUBJECT",
   "yourMessage": "YOUR MESSAGE",
-  "sendMessage": "SEND MESSAGE"
+  "sendMessage": "SEND MESSAGE",
+
+  "footerCopyright": "© 2026 ARCHI. ALL RIGHTS RESERVED.",
+  "footerDesignedBuilt": "DESIGNED & BUILT WITH CARE."
 }

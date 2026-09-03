@@ -2,6 +2,7 @@ import 'package:architecture_portfolio_web/core/constants/app_colors.dart';
 import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
+import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -93,39 +94,42 @@ class _AboutPlaceholder extends StatelessWidget {
   }
 }
 
-class _AboutContent extends StatelessWidget {
+class _AboutContent extends StatefulWidget {
+  @override
+  State<_AboutContent> createState() => _AboutContentState();
+}
+
+class _AboutContentState extends State<_AboutContent> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'ABOUT',
+          l10n.about,
           style: AppTextStyles.label(context),
         ),
         const SizedBox(
           height: AppSpacing.lg,
         ),
         Text(
-          'HELLO,\nI\'M OPAL.',
+          '${l10n.helloIm}\nOPAL',
           style: AppTextStyles.h2(context),
         ),
         const SizedBox(
           height: AppSpacing.lg,
         ),
         Text(
-          'I am a recent architecture graduate passionate '
-          'about creating thoughtful spaces that connect '
-          'people, nature, and everyday experiences.',
+          l10n.aboutHeadline,
           style: AppTextStyles.bodyLarge(context),
         ),
         const SizedBox(
           height: AppSpacing.md,
         ),
         Text(
-          'My approach to architecture focuses on understanding '
-          'context, exploring ideas, and transforming them into '
-          'meaningful spatial experiences.',
+          l10n.aboutHeroDescription,
           style: AppTextStyles.body(context),
         ),
         const SizedBox(
@@ -143,7 +147,7 @@ class _AboutContent extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'MORE ABOUT ME',
+                l10n.moreAboutMe,
                 style: AppTextStyles.label(
                   context,
                   color: AppColors.primaryText,

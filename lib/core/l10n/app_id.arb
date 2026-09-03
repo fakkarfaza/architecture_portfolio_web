@@ -9,7 +9,7 @@
   "architecturePortfolio": "PORTOFOLIO ARSITEKTUR",
   "heroTitle": "MERANCANG RUANG\nYANG MENGINSPIRASI.",
   "heroDescription": "Arsitektur lebih dari sekadar menciptakan bangunan. Arsitektur adalah tentang merancang ruang yang menghubungkan manusia, alam, dan pengalaman.",
-  "scrollToExplore": "GULIR UNTUK MENJELAJAHI",
+  "scrollToExplore": "SCROLL UNTUK MENJELAJAHI",
   "featuredProjects": "PROYEK UNGGULAN",
   "viewProject": "LIHAT PROYEK",
   "designProcess": "PROSES DESAIN",
@@ -56,6 +56,7 @@
   "rhino": "Rhino",
 
   "aboutMe": "TENTANG SAYA",
+  "moreAboutMe": "SELEBIHNYA TENTANG SAYA",
   "helloIm": "Halo, saya",
   "architectName": "NAMA ANDA",
   "architectRole": "Lulusan Arsitektur",
@@ -65,6 +66,9 @@
   "profilePhone": "+62 812 3456 7890",
 
   "contactHeadline": "MARI CIPTAKAN SESUATU\nYANG BERMAKNA BERSAMA.",
+  "letsWorkTogether": "MARI BEKERJA SAMA",
+  "contactCtaTitleDesktop": "MARI WUJUDKAN SESUATU\nYANG BERMAKNA.",
+  "contactCtaTitleMobile": "MARI WUJUDKAN\nSESUATU YANG\nBERMAKNA.",
   "contactDescription": "Memiliki proyek, ide, atau peluang kolaborasi? Saya akan senang mendengar dari Anda dan mengeksplorasi bagaimana kita dapat menciptakan sesuatu yang bermakna bersama.",
   "getInTouch": "HUBUNGI SAYA",
   "email": "EMAIL",
@@ -79,5 +83,8 @@
   "emailAddress": "ALAMAT EMAIL",
   "subject": "SUBJEK",
   "yourMessage": "PESAN ANDA",
-  "sendMessage": "KIRIM PESAN"
+  "sendMessage": "KIRIM PESAN",
+
+  "footerCopyright": "© 2026 ARCHI. HAK CIPTA DILINDUNGI.",
+  "footerDesignedBuilt": "DIDESAIN & DIBANGUN DENGAN SEPENUH HATI."
 }

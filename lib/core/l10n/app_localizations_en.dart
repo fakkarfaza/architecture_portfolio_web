@@ -147,6 +147,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutMe => 'ABOUT ME';
 
   @override
+  String get moreAboutMe => 'MORE ABOUT ME';
+
+  @override
   String get helloIm => 'Hello, I\'m';
 
   @override
@@ -168,7 +171,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profilePhone => '+62 812 3456 7890';
 
   @override
+  String get letsWorkTogether => 'LET\'S WORK TOGETHER';
+
+  @override
   String get contactHeadline => 'LET\'S CREATE SOMETHING\nMEANINGFUL TOGETHER.';
+
+  @override
+  String get contactCtaTitleDesktop => 'LET\'S CREATE SOMETHING\nMEANINGFUL.';
+
+  @override
+  String get contactCtaTitleMobile => 'LET\'S CREATE\nSOMETHING\nMEANINGFUL.';
 
   @override
   String get contactDescription => 'Have a project, collaboration, or idea in mind? I would love to hear from you and explore how we can create something meaningful together.';
@@ -214,4 +226,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sendMessage => 'SEND MESSAGE';
+
+  @override
+  String get footerCopyright => '© 2026 ARCHI. ALL RIGHTS RESERVED.';
+
+  @override
+  String get footerDesignedBuilt => 'DESIGNED & BUILT WITH CARE.';
 }

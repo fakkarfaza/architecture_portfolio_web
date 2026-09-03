@@ -2,6 +2,7 @@ import 'package:architecture_portfolio_web/core/constants/app_colors.dart';
 import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
+import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class ContactCtaSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Container(
       width: double.infinity,
       color: AppColors.primaryText,
@@ -37,7 +40,7 @@ class ContactCtaSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'LET\'S WORK TOGETHER',
+                  l10n.letsWorkTogether,
                   style: AppTextStyles.label(
                     context,
                     color: AppColors.background,
@@ -48,8 +51,8 @@ class ContactCtaSection extends StatelessWidget {
                 ),
                 Text(
                   context.isMobile
-                      ? 'LET\'S CREATE\nSOMETHING\nMEANINGFUL.'
-                      : 'LET\'S CREATE SOMETHING\nMEANINGFUL.',
+                      ? l10n.contactCtaTitleMobile
+                      : l10n.contactCtaTitleDesktop,
                   style: AppTextStyles.h1(
                     context,
                     color: AppColors.background,
@@ -61,8 +64,7 @@ class ContactCtaSection extends StatelessWidget {
                 SizedBox(
                   width: context.isMobile ? double.infinity : 500,
                   child: Text(
-                    'Have a project, collaboration, or idea in mind? '
-                    'I would love to hear from you.',
+                    l10n.contactDescription,
                     style: AppTextStyles.bodyLarge(
                       context,
                       color: AppColors.background,
@@ -73,6 +75,7 @@ class ContactCtaSection extends StatelessWidget {
                   height: AppSpacing.xxl,
                 ),
                 _ContactButton(
+                  l10n: l10n,
                   onPressed: () {
                     context.go(AppRoutes.contact);
                   },
@@ -89,9 +92,11 @@ class ContactCtaSection extends StatelessWidget {
 class _ContactButton extends StatefulWidget {
   const _ContactButton({
     required this.onPressed,
+    required this.l10n,
   });
 
   final VoidCallback onPressed;
+  final AppLocalizations l10n;
 
   @override
   State<_ContactButton> createState() => _ContactButtonState();
@@ -134,7 +139,7 @@ class _ContactButtonState extends State<_ContactButton> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'GET IN TOUCH',
+                widget.l10n.getInTouch,
                 style: AppTextStyles.label(
                   context,
                   color: _isHovered

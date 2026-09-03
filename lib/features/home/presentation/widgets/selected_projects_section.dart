@@ -2,6 +2,7 @@ import 'package:architecture_portfolio_web/core/constants/app_colors.dart';
 import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
+import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:architecture_portfolio_web/features/home/presentation/widgets/project_card.dart';
@@ -42,6 +43,7 @@ class SelectedProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(
@@ -64,6 +66,7 @@ class SelectedProjectsSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _SectionHeader(
+                  l10n: l10n,
                   onViewAllPressed: () {
                     context.go(AppRoutes.projects);
                   },
@@ -114,9 +117,11 @@ class SelectedProjectsSection extends StatelessWidget {
 class _SectionHeader extends StatelessWidget {
   const _SectionHeader({
     required this.onViewAllPressed,
+    required this.l10n
   });
 
   final VoidCallback onViewAllPressed;
+  final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
@@ -124,7 +129,7 @@ class _SectionHeader extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            'SELECTED PROJECTS',
+            l10n.featuredProjects,
             style: AppTextStyles.h2(context),
           ),
         ),
@@ -134,7 +139,7 @@ class _SectionHeader extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'VIEW ALL',
+                l10n.viewProject,
                 style: AppTextStyles.label(
                   context,
                   color: AppColors.primaryText,

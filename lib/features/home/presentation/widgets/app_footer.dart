@@ -2,6 +2,7 @@ import 'package:architecture_portfolio_web/core/constants/app_colors.dart';
 import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
+import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -116,6 +117,8 @@ class AppFooter extends StatelessWidget {
   }
 
   Widget _buildNavigation(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -127,25 +130,25 @@ class AppFooter extends StatelessWidget {
           height: AppSpacing.md,
         ),
         _FooterLink(
-          title: 'HOME',
+          title: l10n.home,
           onTap: () {
             context.go(AppRoutes.home);
           },
         ),
         _FooterLink(
-          title: 'PROJECTS',
+          title: l10n.projects,
           onTap: () {
             context.go(AppRoutes.projects);
           },
         ),
         _FooterLink(
-          title: 'ABOUT',
+          title: l10n.about,
           onTap: () {
             context.go(AppRoutes.about);
           },
         ),
         _FooterLink(
-          title: 'CONTACT',
+          title: l10n.contact,
           onTap: () {
             context.go(AppRoutes.contact);
           },
@@ -179,19 +182,21 @@ class AppFooter extends StatelessWidget {
   }
 
   Widget _buildBottomSection(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     if (context.isMobile) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '© 2026 ARCHI. ALL RIGHTS RESERVED.',
+            l10n.footerCopyright,
             style: AppTextStyles.label(context),
           ),
           const SizedBox(
             height: AppSpacing.sm,
           ),
           Text(
-            'DESIGNED & BUILT WITH CARE.',
+            l10n.footerDesignedBuilt,
             style: AppTextStyles.label(context),
           ),
         ],
@@ -201,12 +206,12 @@ class AppFooter extends StatelessWidget {
     return Row(
       children: [
         Text(
-          '© 2026 ARCHI. ALL RIGHTS RESERVED.',
+          l10n.footerCopyright,
           style: AppTextStyles.label(context),
         ),
         const Spacer(),
         Text(
-          'DESIGNED & BUILT WITH CARE.',
+          l10n.footerDesignedBuilt,
           style: AppTextStyles.label(context),
         ),
       ],

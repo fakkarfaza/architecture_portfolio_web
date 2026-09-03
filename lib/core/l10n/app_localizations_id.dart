@@ -30,7 +30,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get heroDescription => 'Arsitektur lebih dari sekadar menciptakan bangunan. Arsitektur adalah tentang merancang ruang yang menghubungkan manusia, alam, dan pengalaman.';
 
   @override
-  String get scrollToExplore => 'GULIR UNTUK MENJELAJAHI';
+  String get scrollToExplore => 'SCROLL UNTUK MENJELAJAHI';
 
   @override
   String get featuredProjects => 'PROYEK UNGGULAN';
@@ -147,6 +147,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get aboutMe => 'TENTANG SAYA';
 
   @override
+  String get moreAboutMe => 'SELEBIHNYA TENTANG SAYA';
+
+  @override
   String get helloIm => 'Halo, saya';
 
   @override
@@ -168,7 +171,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get profilePhone => '+62 812 3456 7890';
 
   @override
+  String get letsWorkTogether => 'MARI BEKERJA SAMA';
+
+  @override
   String get contactHeadline => 'MARI CIPTAKAN SESUATU\nYANG BERMAKNA BERSAMA.';
+
+  @override
+  String get contactCtaTitleDesktop => 'MARI WUJUDKAN SESUATU\nYANG BERMAKNA.';
+
+  @override
+  String get contactCtaTitleMobile => 'MARI WUJUDKAN\nSESUATU YANG\nBERMAKNA.';
 
   @override
   String get contactDescription => 'Memiliki proyek, ide, atau peluang kolaborasi? Saya akan senang mendengar dari Anda dan mengeksplorasi bagaimana kita dapat menciptakan sesuatu yang bermakna bersama.';
@@ -214,4 +226,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get sendMessage => 'KIRIM PESAN';
+
+  @override
+  String get footerCopyright => '© 2026 ARCHI. HAK CIPTA DILINDUNGI.';
+
+  @override
+  String get footerDesignedBuilt => 'DIDESAIN & DIBANGUN DENGAN SEPENUH HATI.';
 }
