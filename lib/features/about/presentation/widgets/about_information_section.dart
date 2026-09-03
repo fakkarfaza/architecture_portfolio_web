@@ -15,7 +15,7 @@ class AboutInformationSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Center(
         child: ConstrainedBox(

@@ -1,7 +1,3 @@
-import 'package:architecture_portfolio_web/core/constants/app_colors.dart';
-import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
-import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
-import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
 import 'package:architecture_portfolio_web/features/home/presentation/widgets/app_footer.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_detail_concept_section.dart';
@@ -11,10 +7,8 @@ import 'package:architecture_portfolio_web/features/projects/presentation/widget
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_detail_process_section.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_detail_site_analysis_section.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_detail_visualization_section.dart';
-import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:architecture_portfolio_web/shared/widgets/app_navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class ProjectDetailPage extends StatelessWidget {
   const ProjectDetailPage({
