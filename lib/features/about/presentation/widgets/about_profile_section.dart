@@ -4,59 +4,82 @@ import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/l10n/app_localizations.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/about/data/model/profile_model.dart';
+import 'package:architecture_portfolio_web/features/about/presentation/provider/profile_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AboutProfileSection extends StatelessWidget {
+class AboutProfileSection extends ConsumerWidget {
   const AboutProfileSection({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
+    final profileAsync = ref.watch(profileProvider);
 
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(
-        vertical: context.isMobile
-            ? AppSpacing.xxl
-            : AppSpacing.xxxl,
+    return profileAsync.when(
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
       ),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: AppSizes.maxContentWidth,
-          ),
-          child: Padding(
+      error: (error, stack) => Center(
+        child: Text(error.toString()),
+      ),
+      skipLoadingOnReload: true,
+      data: (profile) {
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 350),
+          switchInCurve: Curves.easeOut,
+          switchOutCurve: Curves.easeIn,
+          child: Container(
+            key: ValueKey('${profile.title}-${profile.bio}'),
+            width: double.infinity,
             padding: EdgeInsets.symmetric(
-              horizontal: context.isMobile
-                  ? AppSpacing.md
-                  : AppSpacing.xl,
+              vertical: context.isMobile
+                  ? AppSpacing.xxl
+                  : AppSpacing.xxxl,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.aboutMe,
-                  style: AppTextStyles.h3(context),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: AppSizes.maxContentWidth,
                 ),
-                SizedBox(
-                  height: context.isMobile
-                      ? AppSpacing.xl
-                      : AppSpacing.xxl,
-                ),
-                context.isMobile
-                    ? _MobileProfileContent(
-                        l10n: l10n,
-                      )
-                    : _DesktopProfileContent(
-                        l10n: l10n,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: context.isMobile
+                        ? AppSpacing.md
+                        : AppSpacing.xl,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.aboutMe,
+                        style: AppTextStyles.h3(context),
                       ),
-              ],
+                      SizedBox(
+                        height: context.isMobile
+                            ? AppSpacing.xl
+                            : AppSpacing.xxl,
+                      ),
+                      context.isMobile
+                          ? _MobileProfileContent(
+                              l10n: l10n,
+                              profile: profile,
+                            )
+                          : _DesktopProfileContent(
+                              l10n: l10n,
+                              profile: profile,
+                            ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
@@ -64,18 +87,22 @@ class AboutProfileSection extends StatelessWidget {
 class _DesktopProfileContent extends StatelessWidget {
   const _DesktopProfileContent({
     required this.l10n,
+    required this.profile,
   });
 
   final AppLocalizations l10n;
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(
+        SizedBox(
           width: 280,
-          child: _ProfileImage(),
+          child: _ProfileImage(
+            imageUrl: profile.profileImageUrl,
+          ),
         ),
         const SizedBox(
           width: AppSpacing.xl,
@@ -83,6 +110,7 @@ class _DesktopProfileContent extends StatelessWidget {
         Expanded(
           child: _ProfileInformation(
             l10n: l10n,
+            profile: profile
           ),
         ),
       ],
@@ -93,21 +121,26 @@ class _DesktopProfileContent extends StatelessWidget {
 class _MobileProfileContent extends StatelessWidget {
   const _MobileProfileContent({
     required this.l10n,
+    required this.profile,
   });
 
   final AppLocalizations l10n;
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _ProfileImage(),
+        _ProfileImage(
+          imageUrl: profile.profileImageUrl,
+        ),
         const SizedBox(
           height: AppSpacing.xl,
         ),
         _ProfileInformation(
           l10n: l10n,
+          profile: profile,
         ),
       ],
     );
@@ -117,9 +150,11 @@ class _MobileProfileContent extends StatelessWidget {
 class _ProfileInformation extends StatelessWidget {
   const _ProfileInformation({
     required this.l10n,
+    required this.profile,
   });
 
   final AppLocalizations l10n;
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
@@ -134,14 +169,14 @@ class _ProfileInformation extends StatelessWidget {
           height: AppSpacing.xs,
         ),
         Text(
-          l10n.architectName,
+          profile.name,
           style: AppTextStyles.h3(context),
         ),
         const SizedBox(
           height: AppSpacing.xs,
         ),
         Text(
-          l10n.architectRole,
+          profile.title ?? '',
           style: AppTextStyles.body(context),
         ),
         const SizedBox(
@@ -152,7 +187,7 @@ class _ProfileInformation extends StatelessWidget {
             maxWidth: 420,
           ),
           child: Text(
-            l10n.aboutBiography,
+            profile.bio ?? '',
             style: AppTextStyles.body(context),
           ),
         ),
@@ -161,6 +196,7 @@ class _ProfileInformation extends StatelessWidget {
         ),
         _ContactInformation(
           l10n: l10n,
+          profile: profile,
         ),
       ],
     );
@@ -168,7 +204,11 @@ class _ProfileInformation extends StatelessWidget {
 }
 
 class _ProfileImage extends StatelessWidget {
-  const _ProfileImage();
+  const _ProfileImage({
+    required this.imageUrl,
+  });
+
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -186,13 +226,20 @@ class _ProfileImage extends StatelessWidget {
             ),
           ),
         ),
-        child: const Center(
-          child: Icon(
-            Icons.person_outline,
-            size: 56,
-            color: AppColors.secondaryText,
-          ),
-        ),
+        child: imageUrl != null && imageUrl!.isNotEmpty
+            ? Image.network(
+                imageUrl!,
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              )
+            : const Center(
+                child: Icon(
+                  Icons.person_outline,
+                  size: 56,
+                  color: AppColors.secondaryText,
+                ),
+              ),
       ),
     );
   }
@@ -201,9 +248,11 @@ class _ProfileImage extends StatelessWidget {
 class _ContactInformation extends StatelessWidget {
   const _ContactInformation({
     required this.l10n,
+    required this.profile,
   });
 
   final AppLocalizations l10n;
+  final ProfileModel profile;
 
   @override
   Widget build(BuildContext context) {
@@ -211,21 +260,21 @@ class _ContactInformation extends StatelessWidget {
       children: [
         _ContactItem(
           icon: Icons.location_on_outlined,
-          text: l10n.profileLocation,
+          text: profile.location ?? '',
         ),
         const SizedBox(
           height: AppSpacing.sm,
         ),
         _ContactItem(
           icon: Icons.email_outlined,
-          text: l10n.profileEmail,
+          text: profile.email ?? '',
         ),
         const SizedBox(
           height: AppSpacing.sm,
         ),
         _ContactItem(
           icon: Icons.phone_outlined,
-          text: l10n.profilePhone,
+          text: 'Masih belum ada no telpon di table db nya',
         ),
       ],
     );

@@ -7,6 +7,7 @@
             "type": "dart",
             "deviceId": "edge",
             "args": [
+                "--web-port=51093",
                 "--dart-define=ENV=dev",
                 "--dart-define=API_BASE_URL=http://localhost:8080"
             ]
