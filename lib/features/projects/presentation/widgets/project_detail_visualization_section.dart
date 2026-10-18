@@ -3,6 +3,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProjectDetailVisualizationSection extends StatelessWidget {
@@ -11,14 +12,34 @@ class ProjectDetailVisualizationSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel  project;
 
   @override
   Widget build(BuildContext context) {
-    final image1 = project['visualizationImage1'];
-    final image2 = project['visualizationImage2'];
-    final image3 = project['visualizationImage3'];
-    final image4 = project['visualizationImage4'];
+    final visualizationImages = project.gallery
+        .where(
+          (image) => image.imageType?.toLowerCase() == 'visualization',
+        )
+        .toList()
+      ..sort(
+        (a, b) => (a.sortOrder ?? 0).compareTo(b.sortOrder ?? 0),
+      );
+
+    final image1 = visualizationImages.isNotEmpty
+        ? visualizationImages[0].imageUrl
+        : null;
+
+    final image2 = visualizationImages.length > 1
+        ? visualizationImages[1].imageUrl
+        : null;
+
+    final image3 = visualizationImages.length > 2
+        ? visualizationImages[2].imageUrl
+        : null;
+
+    final image4 = visualizationImages.length > 3
+        ? visualizationImages[3].imageUrl
+        : null;
 
     return Container(
       width: double.infinity,

@@ -3,6 +3,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProjectDetailDesignProcessSection extends StatelessWidget {
@@ -11,28 +12,25 @@ class ProjectDetailDesignProcessSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
     final steps = [
       {
         'number': '01',
-        'title': project['processStep1Title'] ?? 'INITIAL IDEA',
-        'description': project['processStep1Description'] ??
-            'Design process information will be available soon.',
+        'title': 'INITIAL IDEA',
+        'description': project.brief ?? '',
       },
       {
         'number': '02',
-        'title': project['processStep2Title'] ?? 'SPATIAL EXPLORATION',
-        'description': project['processStep2Description'] ??
-            'Design process information will be available soon.',
+        'title': 'SPATIAL EXPLORATION',
+        'description': project.concept ?? '',
       },
       {
         'number': '03',
-        'title': project['processStep3Title'] ?? 'DESIGN DEVELOPMENT',
-        'description': project['processStep3Description'] ??
-            'Design process information will be available soon.',
+        'title': 'DESIGN DEVELOPMENT',
+        'description': project.conceptTitle ?? '',
       },
     ];
 

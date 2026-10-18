@@ -3,6 +3,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProjectDetailMassingDevSection extends StatelessWidget {
@@ -11,31 +12,25 @@ class ProjectDetailMassingDevSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
     final steps = [
       {
         'number': '01',
-        'title': project['massingStep1Title'] ?? 'INITIAL MASS',
-        'description':
-            project['massingStep1Description'] ??
-            'Massing development information will be available soon.',
+        'title': 'INITIAL MASS',
+        'description': '',
       },
       {
         'number': '02',
-        'title': project['massingStep2Title'] ?? 'CREATE THE COURTYARD',
-        'description':
-            project['massingStep2Description'] ??
-            'Massing development information will be available soon.',
+        'title': 'CREATE THE COURTYARD',
+        'description': '',
       },
       {
         'number': '03',
-        'title': project['massingStep3Title'] ?? 'REFINE THE FORM',
-        'description':
-            project['massingStep3Description'] ??
-            'Massing development information will be available soon.',
+        'title': 'REFINE THE FORM',
+        'description': '',
       },
     ];
 

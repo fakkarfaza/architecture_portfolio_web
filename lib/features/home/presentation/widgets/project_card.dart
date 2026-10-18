@@ -105,14 +105,22 @@ class _ProjectCardState extends State<ProjectCard> {
     );
   }
 
+  
   Widget _buildImage() {
     if (widget.imagePath != null) {
-      return Image.asset(
+      return Image.network(
         widget.imagePath!,
         fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) {
+          return _buildPlaceholder();
+        },
       );
     }
 
+    return _buildPlaceholder();
+  }
+
+  Widget _buildPlaceholder() {
     return Container(
       color: AppColors.secondaryText.withValues(alpha: 0.1),
       child: const Center(

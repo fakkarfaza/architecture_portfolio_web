@@ -3,63 +3,27 @@ import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/features/home/presentation/widgets/app_footer.dart';
 import 'package:architecture_portfolio_web/features/home/presentation/widgets/project_card.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_model.dart';
+import 'package:architecture_portfolio_web/features/projects/presentation/provider/project_provider.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_filter.dart';
 import 'package:architecture_portfolio_web/features/projects/presentation/widgets/project_header.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:architecture_portfolio_web/shared/widgets/app_navbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class ProjectsPage extends StatefulWidget {
+class ProjectsPage extends ConsumerStatefulWidget {
   const ProjectsPage({
     super.key,
   });
 
   @override
-  State<ProjectsPage> createState() => _ProjectsPageState();
+  ConsumerState<ProjectsPage> createState() => _ProjectsPageState();
 }
 
-class _ProjectsPageState extends State<ProjectsPage> {
+class _ProjectsPageState extends ConsumerState<ProjectsPage> {
   String _selectedCategory = 'ALL';
-
-  static const List<Map<String, String>> _projects = [
-    {
-      'title': 'TROPICAL COURTYARD HOUSE',
-      'category': 'RESIDENTIAL',
-      'year': '2025',
-      'slug': 'tropical-courtyard-house',
-    },
-    {
-      'title': 'URBAN CULTURAL CENTER',
-      'category': 'PUBLIC',
-      'year': '2024',
-      'slug': 'urban-cultural-center',
-    },
-    {
-      'title': 'COMMUNITY PAVILION',
-      'category': 'COMMUNITY',
-      'year': '2024',
-      'slug': 'community-pavilion',
-    },
-    {
-      'title': 'COASTAL RETREAT',
-      'category': 'HOSPITALITY',
-      'year': '2023',
-      'slug': 'coastal-retreat',
-    },
-  ];
-
-  List<Map<String, String>> get _filteredProjects {
-    if (_selectedCategory == 'ALL') {
-      return _projects;
-    }
-
-    return _projects
-        .where(
-          (project) => project['category'] == _selectedCategory,
-        )
-        .toList();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,34 +92,48 @@ class _ProjectsPageState extends State<ProjectsPage> {
   }
 
   Widget _buildProjectsGrid() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final crossAxisCount = context.isMobile ? 1 : 2;
+    final projectsAsync = ref.watch(projectsProvider);
 
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: _filteredProjects.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: AppSpacing.lg ,
-            mainAxisSpacing: AppSpacing.xxl,
-            childAspectRatio: context.isMobile
-                ? 0.80
-                : 0.88,
-          ),
-          itemBuilder: (context, index) {
-            final project = _filteredProjects[index];
+    return projectsAsync.when(
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
+      error: (error, stack) => Center(
+        child: Text(error.toString()),
+      ),
+      skipLoadingOnReload: true,
+      data: (projects) {
+        final filteredProjects = projects.where((project) {
+          return _matchesCategory(project);
+        }).toList();
 
-            return ProjectCard(
-              title: project['title']!,
-              category: project['category']!,
-              year: project['year']!,
-              onTap: () {
-                context.go(
-                  AppRoutes.projectDetailPath(
-                    project['slug']!,
-                  ),
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            final crossAxisCount = context.isMobile ? 1 : 2;
+
+            return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: filteredProjects.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                crossAxisSpacing: AppSpacing.lg,
+                mainAxisSpacing: AppSpacing.xxl,
+                childAspectRatio: context.isMobile ? 0.80 : 0.88,
+              ),
+              itemBuilder: (context, index) {
+                final project = filteredProjects[index];
+
+                return ProjectCard(
+                  title: project.title.toUpperCase(),
+                  category: project.category ?? '',
+                  year: project.year?.toString() ?? '',
+                  imagePath: project.thumbnailImageUrl,
+                  onTap: () {
+                    context.go(
+                      AppRoutes.projectDetailPath(project.slug),
+                    );
+                  },
                 );
               },
             );
@@ -163,5 +141,35 @@ class _ProjectsPageState extends State<ProjectsPage> {
         );
       },
     );
+  }
+
+  bool _matchesCategory(ProjectModel project) {
+    if (_selectedCategory == 'ALL') {
+      return true;
+    }
+
+    final category = (project.category ?? '').trim().toUpperCase();
+
+    switch (_selectedCategory) {
+      case 'RESIDENTIAL':
+        return {'RESIDENTIAL', 'HUNIAN'}.contains(category);
+
+      case 'PUBLIC':
+        return {
+          'PUBLIC',
+          'PUBLIC ARCHITECTURE',
+          'PUBLIK',
+          'ARSITEKTUR PUBLIK',
+        }.contains(category);
+
+      case 'COMMUNITY':
+        return {'COMMUNITY', 'KOMUNITAS'}.contains(category);
+
+      case 'HOSPITALITY':
+        return {'HOSPITALITY', 'PERHOTELAN'}.contains(category);
+
+      default:
+        return false;
+    }
   }
 }

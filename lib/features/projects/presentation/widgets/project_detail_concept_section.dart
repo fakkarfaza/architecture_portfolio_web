@@ -3,6 +3,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProjectDetailConceptSection extends StatelessWidget {
@@ -11,15 +12,12 @@ class ProjectDetailConceptSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
-    final conceptTitle = project['conceptTitle'] ??
-        'DESIGN CONCEPT';
-
-    final concept = project['concept'] ??
-        'Concept information will be available soon.';
+    final conceptTitle = project.conceptTitle ?? '';
+    final concept = project.concept ?? '';
 
     return Container(
       width: double.infinity,
@@ -54,6 +52,7 @@ class ProjectDetailConceptSection extends StatelessWidget {
                 _ConceptContent(
                   conceptTitle: conceptTitle,
                   concept: concept,
+                  imageUrl: project.conceptImageUrl,
                 ),
               ],
             ),
@@ -68,10 +67,12 @@ class _ConceptContent extends StatelessWidget {
   const _ConceptContent({
     required this.conceptTitle,
     required this.concept,
+    required this.imageUrl,
   });
 
   final String conceptTitle;
   final String concept;
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +95,9 @@ class _ConceptContent extends StatelessWidget {
         const SizedBox(
           width: AppSpacing.xxxl,
         ),
-        const Expanded(
+        Expanded(
           flex: 3,
-          child: _ConceptVisualPlaceholder(),
+          child: _ConceptVisual(imageUrl: imageUrl),
         ),
       ],
     );
@@ -113,7 +114,7 @@ class _ConceptContent extends StatelessWidget {
         const SizedBox(
           height: AppSpacing.xl,
         ),
-        const _ConceptVisualPlaceholder(),
+        _ConceptVisual(imageUrl: imageUrl),
       ],
     );
   }
@@ -149,27 +150,37 @@ class _ConceptText extends StatelessWidget {
   }
 }
 
-class _ConceptVisualPlaceholder extends StatelessWidget {
-  const _ConceptVisualPlaceholder();
+class _ConceptVisual  extends StatelessWidget {
+  const _ConceptVisual ({
+    required this.imageUrl,
+  });
+
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: context.isMobile
-          ? 4 / 3
-          : 1,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.secondaryText.withValues(
-            alpha: 0.08,
-          ),
-        ),
-        child: const Center(
-          child: Icon(
-            Icons.lightbulb_outline,
-            size: 48,
-            color: AppColors.secondaryText,
-          ),
+      aspectRatio: context.isMobile ? 4 / 3 : 1,
+      child: imageUrl != null && imageUrl!.isNotEmpty
+          ? Image.network(
+              imageUrl!,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return _buildPlaceholder();
+              },
+            )
+          : _buildPlaceholder(),
+    );
+  }
+
+  Widget _buildPlaceholder() {
+    return Container(
+      color: AppColors.secondaryText.withValues(alpha: 0.08),
+      child: const Center(
+        child: Icon(
+          Icons.lightbulb_outline,
+          size: 48,
+          color: AppColors.secondaryText,
         ),
       ),
     );

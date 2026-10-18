@@ -2,6 +2,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProjectDetailBriefSection extends StatelessWidget {
@@ -10,12 +11,11 @@ class ProjectDetailBriefSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
-    final brief = project['brief'] ??
-        'Project information will be available soon.';
+    final brief = project.brief ?? '';
 
     return Container(
       width: double.infinity,

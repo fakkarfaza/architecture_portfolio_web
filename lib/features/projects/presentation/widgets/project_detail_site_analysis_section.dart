@@ -3,6 +3,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:flutter/material.dart';
 
 class ProjectDetailSiteAnalysisSection extends StatelessWidget {
@@ -11,13 +12,12 @@ class ProjectDetailSiteAnalysisSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
-    final analysisTitle = project['siteAnalysisTitle'] ?? 'SITE ANALYSIS';
-
-    final analysisDescription = project['siteAnalysisDescription'] ?? 'Site analysis information will be available soon.';
+    final analysisTitle = 'SITE ANALYSIS';
+    final analysisDescription = '';
 
     return Container(
       width: double.infinity,
@@ -143,7 +143,7 @@ class _SiteInformation extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -155,15 +155,15 @@ class _SiteInformation extends StatelessWidget {
       children: [
         _SiteInfoItem(
           label: 'LOCATION',
-          value: project['location'] ?? '-',
+          value: project.location ?? '-',
         ),
         _SiteInfoItem(
           label: 'CLIMATE',
-          value: project['siteClimate'] ?? '-',
+          value: '-',
         ),
         _SiteInfoItem(
           label: 'ORIENTATION',
-          value: project['siteOrientation'] ?? '-',
+          value: '-',
         ),
       ],
     );
@@ -210,35 +210,25 @@ class _SiteAnalysisItems extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
     final items = [
       {
         'number': '01',
-        'title': project['siteSunTitle'] ?? 'SUNLIGHT',
-        'description':
-            project['siteSunDescription'] ??
-                'Information will be available soon.',
+        'title': 'SUNLIGHT',
+        'description': '',
       },
       {
         'number': '02',
-        'title':
-            project['siteWindTitle'] ??
-                'NATURAL VENTILATION',
-        'description':
-            project['siteWindDescription'] ??
-                'Information will be available soon.',
+        'title': 'NATURAL VENTILATION',
+        'description': '',
       },
       {
         'number': '03',
-        'title':
-            project['siteContextTitle'] ??
-                'SURROUNDING CONTEXT',
-        'description':
-            project['siteContextDescription'] ??
-                'Information will be available soon.',
+        'title': 'SURROUNDING CONTEXT',
+        'description': '',
       },
     ];
 

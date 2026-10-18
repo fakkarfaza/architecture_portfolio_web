@@ -3,6 +3,7 @@ import 'package:architecture_portfolio_web/core/constants/app_sizes.dart';
 import 'package:architecture_portfolio_web/core/constants/app_spacing.dart';
 import 'package:architecture_portfolio_web/core/extensions/context_extensions.dart';
 import 'package:architecture_portfolio_web/core/theme/app_text_styles.dart';
+import 'package:architecture_portfolio_web/features/projects/data/model/project_detail_model.dart';
 import 'package:architecture_portfolio_web/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +14,7 @@ class ProjectDetailHeroSection extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,9 @@ class ProjectDetailHeroSection extends StatelessWidget {
                       ? AppSpacing.xxl
                       : AppSpacing.xxxl,
                 ),
-                const _ProjectVisualPlaceholder(),
+                _ProjectVisual(
+                  imageUrl: project.heroImageUrl,
+                ),
               ],
             ),
           ),
@@ -102,7 +105,7 @@ class _ProjectHeader extends StatelessWidget {
     required this.project,
   });
 
-  final Map<String, String> project;
+  final ProjectDetailModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -110,14 +113,14 @@ class _ProjectHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          project['category']!,
+          (project.category ?? '').toUpperCase(),
           style: AppTextStyles.label(context),
         ),
         const SizedBox(
           height: AppSpacing.lg,
         ),
         Text(
-          project['title']!,
+          project.title.toUpperCase(),
           style: AppTextStyles.h1(context),
         ),
         const SizedBox(
@@ -129,11 +132,11 @@ class _ProjectHeader extends StatelessWidget {
           children: [
             _ProjectMetaItem(
               label: 'YEAR',
-              value: project['year']!,
+              value: project.year?.toString() ?? '-',
             ),
             _ProjectMetaItem(
               label: 'LOCATION',
-              value: project['location']!,
+              value: project.location ?? '-',
             ),
           ],
         ),
@@ -169,26 +172,39 @@ class _ProjectMetaItem extends StatelessWidget {
   }
 }
 
-class _ProjectVisualPlaceholder extends StatelessWidget {
-  const _ProjectVisualPlaceholder();
+class _ProjectVisual extends StatelessWidget {
+  const _ProjectVisual({
+    required this.imageUrl,
+  });
+
+  final String? imageUrl;
 
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: context.isMobile ? 4 / 5 : 16 / 9,
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: AppColors.secondaryText.withValues(
-            alpha: 0.08,
-          ),
-        ),
-        child: const Center(
-          child: Icon(
-            Icons.architecture_outlined,
-            size: 64,
-            color: AppColors.secondaryText,
-          ),
+      child: imageUrl != null && imageUrl!.isNotEmpty
+          ? Image.network(
+              imageUrl!,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return _buildPlaceholder();
+              },
+            )
+          : _buildPlaceholder(),
+    );
+  }
+
+  Widget _buildPlaceholder() {
+    return Container(
+      width: double.infinity,
+      color: AppColors.secondaryText.withValues(alpha: 0.08),
+      child: const Center(
+        child: Icon(
+          Icons.architecture_outlined,
+          size: 64,
+          color: AppColors.secondaryText,
         ),
       ),
     );
